@@ -26,8 +26,7 @@ PKG_MAINTAINER:=HaiBac Ngo <ngohaibac@gmail.com>
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
-CMAKE_OPTIONS = -DPAHO_BUILD_SAMPLES=TRUE \
-	-DPAHO_WITH_SSL=TRUE 
+CMAKE_OPTIONS = -DPAHO_BUILD_SAMPLES=TRUE -DPAHO_WITH_SSL=TRUE
 
 TARGET_CFLAGS += $(FPIC)
 
@@ -36,7 +35,7 @@ define Package/libpaho.mqtt.c
   CATEGORY:=Libraries
   TITLE:= Eclipse Paho MQTT C client
   URL:=http://eclipse.org/paho
-  DEPENDS:=+libpthread
+  DEPENDS:=+libpthread +libcrypto +libopenssl
 endef
 
 define Package/libpaho.mqtt.c/description
@@ -47,24 +46,12 @@ define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/include
 	$(CP) $(PKG_INSTALL_DIR)/usr/include/MQTT*.h $(1)/usr/include/
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libpaho-mqtt3{a,c}{,s}.so.1.3.0 $(1)/usr/lib/
-	${LN} libpaho-mqtt3a.so.1 $(1)/usr/lib/libpaho-mqtt3a.so.1.3.0
-	${LN} libpaho-mqtt3a.so $(1)/usr/lib/libpaho-mqtt3a.so.1.3.0
-	${LN} libpaho-mqtt3as.so.1 $(1)/usr/lib/libpaho-mqtt3as.so.1.3.0
-	${LN} libpaho-mqtt3as.so $(1)/usr/lib/libpaho-mqtt3as.so.1.3.0
-	${LN} libpaho-mqtt3cs.so.1 $(1)/usr/lib/libpaho-mqtt3cs.so.1.3.0
-	${LN} libpaho-mqtt3cs.so $(1)/usr/lib/libpaho-mqtt3cs.so.1.3.0
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libpaho-mqtt3*.so* $(1)/usr/lib/	
 endef
 
 define Package/libpaho.mqtt.c/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libpaho-mqtt3{a,c}{,s}.so.1.3.0 $(1)/usr/lib/
-	${LN} libpaho-mqtt3a.so.1 $(1)/usr/lib/libpaho-mqtt3a.so.1.3.0
-	${LN} libpaho-mqtt3a.so $(1)/usr/lib/libpaho-mqtt3a.so.1.3.0
-	${LN} libpaho-mqtt3as.so.1 $(1)/usr/lib/libpaho-mqtt3as.so.1.3.0
-	${LN} libpaho-mqtt3as.so $(1)/usr/lib/libpaho-mqtt3as.so.1.3.0
-	${LN} libpaho-mqtt3cs.so.1 $(1)/usr/lib/libpaho-mqtt3cs.so.1.3.0
-	${LN} libpaho-mqtt3cs.so $(1)/usr/lib/libpaho-mqtt3cs.so.1.3.0
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libpaho-mqtt3*.so* $(1)/usr/lib/	
 endef
 
 $(eval $(call BuildPackage,libpaho.mqtt.c))
