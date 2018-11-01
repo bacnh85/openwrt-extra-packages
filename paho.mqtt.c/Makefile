@@ -35,7 +35,7 @@ define Package/libpaho.mqtt.c
   CATEGORY:=Libraries
   TITLE:= Eclipse Paho MQTT C client
   URL:=http://eclipse.org/paho
-  DEPENDS:=+libpthread +libcrypto +libopenssl
+  DEPENDS:=+libpthread +libopenssl
 endef
 
 define Package/libpaho.mqtt.c/description
