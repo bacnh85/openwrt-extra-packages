@@ -10,12 +10,12 @@ Installation of pre-built packages is handled directly by the opkg utility withi
 
 ## Usage
 
-Add this feed into your feeds.conf
+Add this feed into your feeds.conf:
 ```
 src-git custom https://github.com/ngohaibac/openwrt-extra-packages
 ```
 
-This feed is enabled by default. To install all its package definitions, run:
+To install all its package definitions, run:
 
 ```
 ./scripts/feeds update custom
