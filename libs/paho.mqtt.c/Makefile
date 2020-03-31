@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2006-2018 OpenWrt.org
+# Copyright (C) 2006-2018 OpenWrt.org 
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=paho.mqtt.c
-PKG_VERSION:=1.3.0
+PKG_VERSION:=1.3.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=v$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://github.com/eclipse/paho.mqtt.c/archive/
-PKG_MD5SUM:=8fac1bff9b0d5a74fa1caf8db0501fca
+PKG_MD5SUM:=1b709fd42bf5f1e52ae8f07a620a2a83
 
 PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=COPYING
